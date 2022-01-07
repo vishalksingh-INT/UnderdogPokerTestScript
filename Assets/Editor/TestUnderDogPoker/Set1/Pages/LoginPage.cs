@@ -37,7 +37,7 @@ public class LoginPage : BasePage
     public AltUnityObject ErrorMessage_Panel { get => Driver.WaitForObject(By.NAME, "ErrorMessage_Panel"); }
     public AltUnityObject Error_text { get => Driver.WaitForObject(By.NAME, "Error_text"); }
 
-    public AltUnityObject PopUp_text { get => Driver.WaitForObject(By.NAME, "PopUp_text"); }
+    public AltUnityObject PopUp_text { get => Driver.WaitForObject(By.NAME, "Text_2"); }
 
     public AltUnityObject RetryButton { get => Driver.WaitForObject(By.NAME, "RetryButton"); }
 
@@ -48,7 +48,7 @@ public class LoginPage : BasePage
         if (EmailIdInput != null && PasswordInput != null && LoginBtn != null && Google_SignIn_Btn != null && FB_SignIn_Btn != null && ForgotPwd_Btn != null && CreateNow_Btn != null)
         {
             return true;
-            LoggingScript.Instance.AddLog("Login page loadedd with all elements:");
+            LoggingScript.Instance.AddLog("Login page loadedd with all mobile elements:");
         }
             return false;
        

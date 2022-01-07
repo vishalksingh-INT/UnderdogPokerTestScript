@@ -29,15 +29,15 @@ namespace Editor.TestUnderDogPoker.Tests
            
         }
         [Test]
-        public void Login_TC_ID_1_Check_textboxes_Email_Password_buttons()
+        public void Login_TC_ID_1_verify_the_UI_of_Login_screen()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_1 test case execution started");
-            loginPage.IsDisplayed();
-            altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_1" + LoggingScript.Instance.Sreenshotend);
-            LoggingScript.Instance.AddLog("verifying the Login page is displayed or not");
+            //loginPage.IsDisplayed();
+            //altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_1" + LoggingScript.Instance.Sreenshotend);
+            LoggingScript.Instance.AddLog("verifying the Login page UI is displayed or not");
             Assert.True(loginPage.IsDisplayed());
             altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_1" + LoggingScript.Instance.Sreenshotend);
-            LoggingScript.Instance.AddLog("Login page is displayed");
+            LoggingScript.Instance.AddLog(" All the buttons, links and text  are appearing properly for Login page is displayed");
             LoggingScript.Instance.AddLog("Login_TC_ID_1 PASSED");
 
         }
@@ -69,10 +69,15 @@ namespace Editor.TestUnderDogPoker.Tests
             altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_3" + LoggingScript.Instance.Sreenshotend);
             LoggingScript.Instance.AddLog("ALERT message recieved");
             LoggingScript.Instance.AddLog("Login_TC_ID_3 passed");
+            loginPage.OkayButton.Tap();
+            loginPage.PasswordInput.SetText("");
+
+
+
 
         }
         [Test]
-        public void Login_TC_ID_4_Check_textboxes_Email_Password_buttons()
+        public void Login_TC_ID_4_Check__required_fieldby_not_filling_password()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_4 test case execution started");
             loginPage.not_filling_password();
@@ -80,10 +85,12 @@ namespace Editor.TestUnderDogPoker.Tests
             Assert.AreEqual(loginPage.getAlertText(), "Password cannot be empty.");
             LoggingScript.Instance.AddLog("ALERT message recieved");
             LoggingScript.Instance.AddLog("Login_TC_ID_4 passed");
+            loginPage.OkayButton.Tap();
+            loginPage.EmailIdInput.SetText("");
 
         }
         [Test]
-        public void Login_TC_ID_5_9_passing_incorrect_Email_validPassword()
+        public void Login_TC_ID_5_7_passing_incorrect_Email_validPassword()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_5 test case execution started");
             loginPage.passing_incorrect_Email_validPassword();
@@ -91,11 +98,24 @@ namespace Editor.TestUnderDogPoker.Tests
             altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_5_9" + LoggingScript.Instance.Sreenshotend);
             loginPage.PressRetryButton();
             LoggingScript.Instance.AddLog("ALERT message recieved");
-            LoggingScript.Instance.AddLog("Login_TC_ID_4 passed");
+            LoggingScript.Instance.AddLog("Login_TC_ID_5 to 7 passed");
+
+        }
+
+        [Test]
+        public void Login_TC_ID_8_9_passing_correct_Email_InvalidPassword()
+        {
+            LoggingScript.Instance.AddLog("Login_TC_ID_5 test case execution started");
+            loginPage.passing_correctEmail_InvalidPassword();
+            Assert.AreEqual(loginPage.getPopupText(), "Invalid login Credential.");
+            altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_5_9" + LoggingScript.Instance.Sreenshotend);
+            loginPage.PressRetryButton();
+            LoggingScript.Instance.AddLog("ALERT message recieved");
+            LoggingScript.Instance.AddLog("Login_TC_ID_8to9 passed");
 
         }
         [Test]
-        public void Login_TC_ID_10_LoginEmail()
+        public void Login_TC_ID_9_14_10_LoginEmail()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_10 test case execution started");
             loginPage.LoginEmail();
@@ -106,7 +126,7 @@ namespace Editor.TestUnderDogPoker.Tests
 
         }
         [Test]
-            public void Login_TC_ID_11_ForgotPasswordlink_present_Loginscreen()
+            public void Login_TC_ID_9_11_ForgotPasswordlink_present_Loginscreen()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_11 test case execution started");
             Assert.IsTrue(loginPage.ForgotPasswordlink_present_Loginscreen());
@@ -115,7 +135,7 @@ namespace Editor.TestUnderDogPoker.Tests
             LoggingScript.Instance.AddLog("Login_TC_ID_11 passed");
         }
         [Test]
-        public void Login_TC_ID_12_CreateNow_Button()
+        public void Login_TC_ID_9_12_CreateNow_Button()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_12 test case execution started");
             Assert.IsTrue(loginPage.CreateNow_Button());
@@ -142,7 +162,7 @@ namespace Editor.TestUnderDogPoker.Tests
             Assert.True(forgotPasswordPage.IsDisplayed());
         }
         [Test]
-        public void Login_TC_ID_13_CreateButtonLoadSignupScreen()
+        public void Login_TC_ID_9_13_CreateButtonLoadSignupScreen()
         {
             LoggingScript.Instance.AddLog("Login_TC_ID_13 test case execution started");
             loginPage.PressCreateNowBtn();
@@ -150,6 +170,8 @@ namespace Editor.TestUnderDogPoker.Tests
             altUnityDriver.GetPNGScreenshot(LoggingScript.Instance.pathToYourFile + "Login_TC_ID_13" + LoggingScript.Instance.Sreenshotend);
             LoggingScript.Instance.AddLog("Signup page is displayed");
             LoggingScript.Instance.AddLog("Login_TC_ID_13 passed");
+            signupPage.PressLoginHereButton();
+
         }
 
         [Test]
